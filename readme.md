@@ -20,3 +20,9 @@ docker inspect --format='{{.Name}}' $(sudo docker ps -aq --no-trunc)
 
 # Remove all images pendente
 docker rmi $(docker images -f dangling=true -q)
+
+
+### One liner to stop / remove all of Docker containers:
+
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
