@@ -29,3 +29,6 @@ docker rm $(docker ps -a -q)
 
 ##### Verificando se está funcionando api
 curl -H 'Accept: application/vnd.marketplace.v1' http://api.market_place_api.dev/users/1
+
+### Caso peça permissão de pasta basta colocar o comando no terminal
+sudo chown -R $USER:$USER .
