@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::UsersController, type: :controller do
-  before(:each) { request.headers['Accept'] = "application/vnd.localhost.v1" }
 
   describe "POST #create" do
 
