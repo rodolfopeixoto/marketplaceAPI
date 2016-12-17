@@ -26,3 +26,6 @@ docker rmi $(docker images -f dangling=true -q)
 
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
+
+##### Verificando se está funcionando api
+curl -H 'Accept: application/vnd.marketplace.v1' http://api.market_place_api.dev/users/1
