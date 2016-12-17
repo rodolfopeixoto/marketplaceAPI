@@ -52,6 +52,7 @@ RSpec.configure do |config|
 
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+  config.include(Devise::Test::ControllerHelpers, type: :controller)
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
