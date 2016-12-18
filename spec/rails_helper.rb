@@ -64,10 +64,8 @@ RSpec.configure do |config|
     include_default_accept_headers
   end
 
-  config.mock_with :rspec do |mocks|
-    mocks.syntax = [:should, :receive]
-  end
 
+  config.mock_with :rspec
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
