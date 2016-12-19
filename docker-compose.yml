@@ -7,6 +7,7 @@ services:
       - POSTGRES_PASSWORD=
   web:
     build: .
+    command: ./script/start
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/market_place_api
@@ -14,3 +15,9 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    volumes_from:
+      - box
+  box:
+    image: busybox
+    volumes:
+      - /box
