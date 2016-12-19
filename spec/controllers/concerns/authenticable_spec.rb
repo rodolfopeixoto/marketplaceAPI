@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-class Authentication
-  include Authenticable
-  attr_accessor :request, :response
+class Authentication < ActionController::Base
+ include Authenticable
 end
 
 describe Authenticable do
@@ -13,7 +12,7 @@ describe Authenticable do
     before do
       @user = FactoryGirl.create(:user)
       api_authorization_header(@user.auth_token)
-      allow(authentication).to receive(:request).and_return(request)
+      allow(authentication).to receive(:request) { request }
     end
     it "returns the user from the authorization header" do
       expect(authentication.current_user.auth_token).to eql @user.auth_token
@@ -23,17 +22,17 @@ describe Authenticable do
   describe "#authenticate_with_token" do
     before do
       @user = FactoryGirl.create(:user)
-      allow(authentication).to receive(:current_user).and_return(nil)
-      allow(response).to receive(:response_code).and_return(401)
-      allow(response).to receive(:body).and_return({"errors" => "Not authenticated"}.to_json)
-      allow(authentication).to receive(:response).and_return(response)
+      allow(authentication).to receive(:current_user) {nil}
+      allow(response).to receive(:response_code) {401}
+      allow(response).to receive(:body) { {"errors" => "Not authenticated"}.to_json }
+      allow(authentication).to receive(:response) { response }
     end
 
     it "render a json error message" do
-      expect(json_response[:errors]).to eql "Not authenticated"
+      expect(json_response[:errors]).to eq "Not authenticated"
     end
 
-    it { expect(response.status).to eq 401 }
+    it { should respond_with 401 }
 
   end
 
@@ -41,7 +40,7 @@ describe Authenticable do
     context "when there is a user on 'session'" do
       before do
         @user = FactoryGirl.create :user
-        expect(authentication).to receive(:current_user).and_return(@user)
+        expect(authentication).to receive(:current_user) { @user }
       end
       it { should be_user_signed_in }
     end

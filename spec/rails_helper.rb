@@ -64,6 +64,15 @@ RSpec.configure do |config|
     include_default_accept_headers
   end
 
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      # Choose a test framework:
+      with.test_framework :rspec
+
+      # Or, choose the following (which implies all of the above):
+      with.library :rails
+    end
+  end
 
   config.mock_with :rspec
   # Filter lines from Rails gems in backtraces.
