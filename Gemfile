@@ -25,12 +25,12 @@ group :development, :test do
   gem 'byebug', platform: :mri
 end
 
-  group :test do
-    gem 'rspec-rails'
-    gem 'factory_girl_rails'
-    gem 'ffaker'
-    gem 'shoulda-matchers'
-  end
+group :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'shoulda-matchers'
+end
 
 group :development do
   gem 'listen', '~> 3.0.5'
