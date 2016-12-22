@@ -8,11 +8,11 @@ RSpec.describe OrderMailer, type: :mailer do
     before(:each) do
       @order = FactoryGirl.create :order
       @user = @order.user
-      @order_mail = OrderMailer.send_confirmation(@order)
+      @order_mailer = OrderMailer.send_confirmation(@order)
     end
 
     it "should be set to be delivered to the user from the order passed in" do
-      expect(@order_mail).to deliver_to(@user.email)
+      expect(@order_mailer).to deliver_to(@user.email)
     end
 
     it "should be set to be send from no-reply@rodolfopeixoto.com.br" do

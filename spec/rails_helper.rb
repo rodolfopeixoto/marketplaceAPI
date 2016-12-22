@@ -5,6 +5,8 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'action_mailer'
+require "email_spec"
 
  Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -74,8 +76,12 @@ RSpec.configure do |config|
     end
   end
 
-  config.include(EmailSpec::Helpers)
-  config.include(EmailSpec::Matchers)
+  config.include EmailSpec::Helpers
+  config.include EmailSpec::Matchers
+  config.before(:each) do
+    reset_mailer # Clears out ActionMailer::Base.deliveries
+  end
+
   config.mock_with :rspec
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
