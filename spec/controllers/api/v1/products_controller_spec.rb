@@ -8,7 +8,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
   	end
 
   	it "returns the information about a reporter on a hash" do
-  	  product_response = json_response
+  	  product_response = json_response[:product]
   	  expect(product_response[:title]).to eql @product.title
   	end
 
@@ -22,7 +22,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
    end
 
    it "returns 4 records from the database" do
-   	products_response = json_response
+   	products_response = json_response[:products]
    	expect(products_response.length).to eq(4)
    end
 
@@ -39,7 +39,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
       end
 
       it "renders the json representation for the product record just created" do
-      	product_response = json_response
+      	product_response = json_response[:product]
       	expect(product_response[:title]).to eq @product_attributes[:title]
       end
 
@@ -82,7 +82,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
       end
 
       it "renders the json representation for the updated user" do
-        product_response = json_response
+        product_response = json_response[:product]
         expect(product_response[:title]).to eq "An expensive TV"
       end
 

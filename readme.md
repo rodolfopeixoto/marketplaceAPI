@@ -55,7 +55,7 @@ ActiveModelSerializers.config.adapter = :json_api # Default: `:attributes`
 By default ActiveModelSerializers will use the Attributes Adapter (no JSON root). But we strongly advise you to use JsonApi Adapter, which follows 1.0 of the format specified in jsonapi.org/format.
 
 
-
+https://github.com/rails-api/active_model_serializers/blob/master/docs/general/adapters.md#advanced-adapter-configuration
 
 
 
