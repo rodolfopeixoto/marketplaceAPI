@@ -42,6 +42,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
     bcrypt (3.1.11)
     builder (3.2.2)
@@ -54,6 +56,10 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    email_spec (2.1.0)
+      htmlentities (~> 4.3.3)
+      launchy (~> 2.1)
+      mail (~> 2.6.3)
     erubis (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
@@ -64,10 +70,13 @@ GEM
     ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    htmlentities (4.3.4)
     i18n (0.7.0)
     json (1.8.3)
     jsonapi (0.1.1.beta2)
       json (~> 1.8)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -86,6 +95,7 @@ GEM
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
     pg (0.19.0)
+    public_suffix (2.0.4)
     puma (3.6.2)
     rack (2.0.1)
     rack-cors (0.4.0)
@@ -168,6 +178,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   byebug
   devise
+  email_spec
   factory_girl_rails
   ffaker
   listen (~> 3.0.5)

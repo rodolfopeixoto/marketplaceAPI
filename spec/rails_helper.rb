@@ -74,6 +74,8 @@ RSpec.configure do |config|
     end
   end
 
+  config.include(EmailSpec::Helpers)
+  config.include(EmailSpec::Matchers)
   config.mock_with :rspec
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
