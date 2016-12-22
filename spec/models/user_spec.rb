@@ -21,6 +21,7 @@ RSpec.describe User, type: :model do
 
   describe "associations" do
     it { should have_many(:products) }
+    it { should have_many(:orders) }
   end
 
   describe "#generate_authentication_token!" do
