@@ -20,6 +20,8 @@ RSpec.describe Product, type: :model do
 
   describe "associations" do
     it { should belong_to :user }
+    it { should have_many(:placements) }
+    it { should have_many(:orders).through(:placements) }
   end
 
   describe ".filter_by_title" do
