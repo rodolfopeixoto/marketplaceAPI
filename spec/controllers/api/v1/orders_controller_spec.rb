@@ -52,7 +52,7 @@ RSpec.describe Api::V1::OrdersController, type: :controller do
 
       product_1 = FactoryGirl.create :product
       product_2 = FactoryGirl.create :product
-      order_params = { product_ids: [ [product_1.id, 2], [product_2.id, 3] ] }
+      order_params = { product_ids_and_quantities: [ [product_1.id, 2], [product_2.id, 3] ] }
       post :create, params:{ user_id: current_user.id, order: order_params }, format: :json
     end
 
@@ -63,7 +63,6 @@ RSpec.describe Api::V1::OrdersController, type: :controller do
 
     it "embeds the two product objects related to the order" do
       order_response = json_response[:order]
-      puts "VALOR: #{order_response}"
       expect(order_response[:products].size).to eq 2
     end
 
