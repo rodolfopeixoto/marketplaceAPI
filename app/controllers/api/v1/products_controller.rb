@@ -4,7 +4,9 @@ class Api::V1::ProductsController < ApplicationController
   respond_to :json
 
   def index
-    products = Product.search(params).page(params[:page]).per(params[:per_page])
+    products_array = Product.search(params)
+    products = Kaminari.paginate_array(products_array).page(params[:page]).per(params[:per_page])
+
     respond_with products, meta: pagination_dict(products)
   end
 

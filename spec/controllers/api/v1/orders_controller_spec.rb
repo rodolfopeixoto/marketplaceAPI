@@ -14,6 +14,8 @@ RSpec.describe Api::V1::OrdersController, type: :controller do
       expect(orders_response.length).to eq(4)
     end
 
+    it_behaves_like "paginated list"
+
     it { should respond_with 200 }
   end
 
