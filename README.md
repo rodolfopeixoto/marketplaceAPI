@@ -1,24 +1,38 @@
-# README
+# Projeto MarketPlace API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projeto é uma API com os aspectos principais de um marketplace!
 
-Things you may want to cover:
+========================================
+- As ferramentas utilizadas nesse projeto:
 
-* Ruby version
+ ```
+  Rails 5
+   gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+   gem 'pg', '~> 0.18'
+   gem 'puma', '~> 3.0'
 
-* System dependencies
+   gem 'rack-cors', :require => 'rack/cors'
 
-* Configuration
+   group :development, :test do
+     # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+     gem 'byebug', platform: :mri
+    gem 'factory_girl_rails'
+    gem 'ffaker'
+   end
 
-* Database creation
+   group :test do
+    gem 'rspec-rails'
+    gem 'shoulda-matchers'
+    gem 'email_spec'
+   end
 
-* Database initialization
+   gem 'active_model_serializers', '~> 0.10.0'
+   gem 'devise'
+   gem 'kaminari'
+   gem 'delayed_job_active_record'
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+  Docker
 
-* Deployment instructions
+```
 
-* ...
