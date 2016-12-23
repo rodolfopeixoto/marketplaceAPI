@@ -36,107 +36,107 @@ Projeto é uma API com os aspectos principais de um marketplace!
 
 ```
 
-### Comandos Docker
+- Comandos Docker
 ===================
 
 - Stop container
 
-```
- docker-compose stop $(docker ps -qf)
+  ```
+    docker-compose stop $(docker ps -qf)
 
-```
+  ```
 
 - To remove all containers that are NOT running
 
-```
-docker rm `docker ps -aq -f status=exited`
+  ```
+    docker rm `docker ps -aq -f status=exited`
 
-```
+  ```
 
 - To list all running and stopped containers
-```
-docker ps -a
+	```
+	  docker ps -a
 
-```
+	```
 
 - To list all running containers (just stating the obvious and also example use of -f filtering option)
 
-```
+	```
 
-docker ps -a -f status=running
+	  docker ps -a -f status=running
 
-```
+	```
 - To list all running and stopped containers, showing only their container id
 
-```
+	```
 
-docker ps -aq
+	  docker ps -aq
 
-```
+	```
 - List all name of all containers
 
-```
+	```
 
-docker inspect --format='{{.Name}}' $(sudo docker ps -aq --no-trunc)
+	  docker inspect --format='{{.Name}}' $(sudo docker ps -aq --no-trunc)
 
-```
+	```
 - Remove all images pendente
 
-```
-docker rmi $(docker images -f dangling=true -q)
+	```
+	  docker rmi $(docker images -f dangling=true -q)
 
-```
+	```
 
 - One liner to stop / remove all of Docker containers:
 
-```
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
+		```
+		  docker stop $(docker ps -a -q)
+		  docker rm $(docker ps -a -q)
 
-```
+		```
 - Verificando se está funcionando api
 
-```
-curl -H 'Accept: application/vnd.marketplace.v1' http://api.market_place_api.dev/users/1
+	```
+	   curl -H 'Accept: application/vnd.marketplace.v1' http://api.market_place_api.dev/users/1
 
-```
+	```
 
 - Caso peça permissão de pasta basta colocar o comando no terminal
 
-```
-sudo chown -R $USER:$USER .
+	```
+	  sudo chown -R $USER:$USER .
 
-```
+	```
 
 - Configurar o active_model_serializers
 
-```
-And configure Rails for JSON API serialization in two steps:
+	```
+	  And configure Rails for JSON API serialization in two steps:
 
-Create an initializer at config/initializers/json_api.rb with the following code:
+	  Create an initializer at config/initializers/json_api.rb with the following code:
 
-ActiveSupport.on_load(:action_controller) do
-  require 'active_model_serializers/register_jsonapi_renderer'
-end
+	  ActiveSupport.on_load(:action_controller) do
+	  require 'active_model_serializers/register_jsonapi_renderer'
+	  end
 
-ActiveModelSerializers.config.adapter = :json_api
+	  ActiveModelSerializers.config.adapter = :json_api
 
-```
+    ```
 
 
 
 - Capítulo 7 error
 
-```
+		```
 
-/config/initializers/serializer.rb
-ActiveModelSerializers.config.adapter = :json_api # Default: `:attributes`
-By default ActiveModelSerializers will use the Attributes Adapter (no JSON root). But we strongly advise you to use JsonApi Adapter, which follows 1.0 of the format specified in jsonapi.org/format.
+		/config/initializers/serializer.rb
+		ActiveModelSerializers.config.adapter = :json_api # Default: `:attributes`
+		By default ActiveModelSerializers will use the Attributes Adapter (no JSON root). But we strongly advise you to use JsonApi Adapter, which follows 1.0 of the format specified in jsonapi.org/format.
 
 
-https://github.com/rails-api/active_model_serializers/blob/master/docs/general/adapters.md#advanced-adapter-configuration
+		https://github.com/rails-api/active_model_serializers/blob/master/docs/general/adapters.md#advanced-adapter-configuration
 
-```
+		```
 
 #### Desenvolvendo APIS ON RAILS
 ================================
