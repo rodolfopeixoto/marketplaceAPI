@@ -37,7 +37,6 @@ Projeto é uma API com os aspectos principais de um marketplace!
 ```
 
 - Comandos Docker
-===================
 
 - Stop container
 
@@ -89,11 +88,9 @@ Projeto é uma API com os aspectos principais de um marketplace!
 
 - One liner to stop / remove all of Docker containers:
 
-		```
 		  docker stop $(docker ps -a -q)
 		  docker rm $(docker ps -a -q)
 
-		```
 - Verificando se está funcionando api
 
 	```
@@ -127,7 +124,6 @@ Projeto é uma API com os aspectos principais de um marketplace!
 
 - Capítulo 7 error
 
-		```
 
 		/config/initializers/serializer.rb
 		ActiveModelSerializers.config.adapter = :json_api # Default: `:attributes`
@@ -136,11 +132,11 @@ Projeto é uma API com os aspectos principais de um marketplace!
 
 		https://github.com/rails-api/active_model_serializers/blob/master/docs/general/adapters.md#advanced-adapter-configuration
 
-		```
+
 
 #### Desenvolvendo APIS ON RAILS
 ================================
 
 [APIonRails-IcaliaLabs](http://apionrails.icalialabs.com/)
 
-O tutorial é muito bom, mas como já foi feita à tempo, tive que refazer algumas alterações para o modelo atual do framework Rails 5 --api
+O tutorial é muito bom, mas como já foi feita à tempo, tive que refazer algumas alterações para o modelo atual do framework Rails 5 --api e das gems!
