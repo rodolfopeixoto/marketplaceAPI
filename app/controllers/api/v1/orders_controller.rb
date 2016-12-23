@@ -17,7 +17,7 @@ class Api::V1::OrdersController < ApplicationController
 
     if order.save
       order.reload #we reload the object so the response display the product objects
-      OrderMailer.send_confirmation(order).deliver
+      OrderMailer.send_confirmation(order)
       render json: order, status: 201, location: [:api, current_user, order]
     else
       render json: { errors: order.errors }, status: 422
