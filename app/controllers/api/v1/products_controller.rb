@@ -4,7 +4,8 @@ class Api::V1::ProductsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Product.search(params)
+    products = Product.search(params).page(params[:page]).per(params[:per_page])
+    respond_with products, meta: pagination_dict(products)
   end
 
   def show

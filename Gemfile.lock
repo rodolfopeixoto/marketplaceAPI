@@ -75,6 +75,9 @@ GEM
     json (1.8.3)
     jsonapi (0.1.1.beta2)
       json (~> 1.8)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.0.8)
@@ -181,6 +184,7 @@ DEPENDENCIES
   email_spec
   factory_girl_rails
   ffaker
+  kaminari
   listen (~> 3.0.5)
   pg (~> 0.18)
   puma (~> 3.0)

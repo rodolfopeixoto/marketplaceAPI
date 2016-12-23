@@ -23,7 +23,6 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
   describe "GET #index" do
    before(:each) do
      4.times { FactoryGirl.create :product }
-     get :index, format: :json
    end
 
     context "when is not receiving any product_ids parameter" do
@@ -43,6 +42,15 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
         end
        end
 
+
+      it { expect(json_response).to have_key(:meta) }
+      it { expect(json_response[:meta]).to have_key(:pagination) }
+      it { expect(json_response[:meta][:pagination]).to have_key(:current_page) }
+      it { expect(json_response[:meta][:pagination]).to have_key(:next_page) }
+      it { expect(json_response[:meta][:pagination]).to have_key(:prev_page) }
+      it { expect(json_response[:meta][:pagination]).to have_key(:total_pages) }
+      it { expect(json_response[:meta][:pagination]).to have_key(:total_count) }
+
       it { should respond_with 200 }
 
     end
@@ -57,8 +65,8 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
       it "returns just the products that belong to the user" do
         products_response = json_response[:products]
         products_response.each do |product_response|
-        expect(product_response[:user][:email]).to eq @user.email
-      end
+          expect(product_response[:user][:email]).to eq @user.email
+        end
     end
  end
 
