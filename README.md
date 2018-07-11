@@ -93,17 +93,20 @@ Projeto é uma API com os aspectos principais de um marketplace!
 
 - Verificando se está funcionando api
 
-    ```curl -H 'Accept: application/vnd.marketplace.v1' http://api.market_place_api.dev/users/1
-     ```
+    ```
+    curl -H 'Accept: application/vnd.marketplace.v1' http://api.market_place_api.dev/users/1
+    ```
 
 - Caso peça permissão de pasta basta colocar o comando no terminal
 
-    ```sudo chown -R $USER:$USER .
+    ```
+    sudo chown -R $USER:$USER .
     ```
 
 - Configurar o active_model_serializers
 
-    ```And configure Rails for JSON API serialization in two steps:
+    ```
+    And configure Rails for JSON API serialization in two steps:
 
       Create an initializer at config/initializers/json_api.rb with the following code:
 
